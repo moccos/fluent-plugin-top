@@ -20,7 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "test-unit", "~> 3.0.0"
   spec.add_runtime_dependency "fluentd"
   spec.add_runtime_dependency "fluent-mixin-rewrite-tag-name"
 end

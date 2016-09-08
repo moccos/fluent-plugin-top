@@ -1,36 +1,32 @@
-# Fluent::Plugin::Top
+fluent-plugin-top
+===
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fluent/plugin/top`. To experiment with that code, run `bin/console` for an interactive prompt.
+Fluentd input plugin for top command.
 
-TODO: Delete this and the text above, and describe your gem
+## Configuration
+    <source>
+      type top
+      tag local.top       # *required*
+      interval 30         # default: 10.0
+      command_line true   # default: true
+      extra_switch -w 200 # default: ""
+      cpu_percent 50      # default: nil
+    </source>
 
-## Installation
+* **tag**: Output tag. [required]
+* **interval**: Refresh interval in sec.
+* **command_line**: Get command line (/usr/bin/ruby foo.rb -v) instead of simple name (ruby).
+* **extra_switch**: Extra command line switch for top command.
+* **cpu_percent**: Threshold - CPU usage (percent).
+* **mem_percent**: Threshold - Memory usage (percent).
+* **mem**: Threshold - Memory usage in megabytes.
 
-Add this line to your application's Gemfile:
+<!--== Examples-->
 
-```ruby
-gem 'fluent-plugin-top'
-```
+<!--TODO: write here-->
 
-And then execute:
+== Copyright
 
-    $ bundle
+Copyright:: Copyright (c) 2016 IZAWA Tetsu (@moccos)
 
-Or install it yourself as:
-
-    $ gem install fluent-plugin-top
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/fluent-plugin-top.
-
+License:: Apache License, Version 2.0

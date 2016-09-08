@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler'
-require 'test/unit'
 require 'fluent/test'
+require 'fluent/log'
 require 'fluent/plugin/in_top'
 
 begin
