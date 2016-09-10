@@ -3,6 +3,8 @@ fluent-plugin-top
 
 Fluentd input plugin for top command.
 
+If you are interested in system metrics, you should use [dstat plugin](https://github.com/shun0102/fluent-plugin-dstat).
+
 ## Configuration
     <source>
       type top
@@ -25,8 +27,8 @@ Fluentd input plugin for top command.
 
 <!--TODO: write here-->
 
-== Copyright
+## Copyright
 
-Copyright:: Copyright (c) 2016 IZAWA Tetsu (@moccos)
+Copyright (c) 2016 Tetsu Izawa (@moccos)
 
-License:: Apache License, Version 2.0
+Apache License, Version 2.0

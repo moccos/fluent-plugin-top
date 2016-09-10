@@ -4,8 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "fluent-plugin-top"
-  spec.version       = "0.0.1"
-  spec.authors       = ["IZAWA Tetsu (@moccos)"]
+  spec.version       = "0.0.2-dev"
+  spec.authors       = ["Tetsu Izawa (@moccos)"]
   spec.email         = ["tt.izawa@gmail.com"]
   spec.homepage      = "https://github.com/moccos/fluent-plugin-top"
 
