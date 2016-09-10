@@ -35,8 +35,8 @@ module Fluent
     #config_param :pid_file, :array, :default => []
     #config_param :pid_file_watch_interval, :int, :default => 30
 
-    desc 'Test switch. (only for development)'
-    config_param :test_mode, :bool, :default => false
+    desc 'Command line and args. This overrides other settings.'
+    config_param :test_cmd, :string, :default => nil
 
     # for fluent-mixin-rewrite-tag-name
     include Fluent::Mixin::RewriteTagName
@@ -47,7 +47,11 @@ module Fluent
       super
       interval = @interval > INTERVAL_MIN ? @interval : INTERVAL_MIN
       @top_command =
-        "#{@top} -d #{interval} #{@command_line ? "-c" : ""} #{@extra_switch}"
+        if @test_cmd then
+          @test_cmd
+        else
+          "#{@top} -d #{interval} #{@command_line ? "-c" : ""} #{@extra_switch}"
+        end
     end
 
     def start
@@ -63,13 +67,13 @@ module Fluent
 
     def shutdown
       super
-      $log.trace "shutdown top command thread."
-      @top_thread.kill if !@test_mode && @top_thread
+      $log.trace "Shutdown top command thread."
+      @top_thread.kill if @top_thread
     end
 
     private
     def run_top
-      $log.trace "top command thread is running: " + @top_command
+      $log.trace "Top command thread is running: " + @top_command
 			IO.popen(@top_command, "r") {|io|
         parser = Fluent::TopInputParser.new()
 				io.each {|line|
@@ -80,6 +84,7 @@ module Fluent
           end
 				}
 			}
+      $log.warn "Exit top command thread. (reached EOF)"
     end
 
     def check_ps_info(ps)
