@@ -84,7 +84,7 @@ module Fluent
           end
 				}
 			}
-      $log.warn "Exit top command thread. (reached EOF)"
+      $log.info "Exit top command thread. (reached EOF)"
     end
 
     def check_ps_info(ps)

@@ -66,8 +66,8 @@ module Fluent
           s[0, s.length-1].to_f * 1024
         when "g"
           s[0, s.length-1].to_f * 1024 * 1024
-        when "t"
-          s[0, s.length-1].to_f * 1024 * 1024 * 1024
+        #when "t"  # I've never seen...
+          #s[0, s.length-1].to_f * 1024 * 1024 * 1024
         else
           s.to_i
         end
