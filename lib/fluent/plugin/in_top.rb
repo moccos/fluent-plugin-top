@@ -57,11 +57,7 @@ module Fluent
     def start
       super
       @top_thread = Thread.new do
-        begin
-          run_top()
-        rescue => e
-          puts e.to_s
-        end
+        run_top()
       end
     end
 
@@ -80,7 +76,7 @@ module Fluent
           result, ps = parser.parse(line)
           if result && check_ps_info(ps) then
             ps.args = ps.args.join(' ')
-            emit_message(@tag, ps)
+            emit_message(@tag, ps.to_h)
           end
 				}
 			}
