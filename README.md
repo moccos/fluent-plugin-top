@@ -1,5 +1,7 @@
 fluent-plugin-top
 ===
+[![Gem Version](https://badge.fury.io/rb/fluent-plugin-top.svg)](https://badge.fury.io/rb/fluent-plugin-top)
+[![Build Status](https://travis-ci.org/moccos/fluent-plugin-top.svg?branch=master)](https://travis-ci.org/moccos/fluent-plugin-top)
 
 Fluentd input plugin for top command.
 
