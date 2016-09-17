@@ -18,7 +18,7 @@ class TopInputTest < Test::Unit::TestCase
       tag test.${hostname}.top
       interval 1
       mem_percent 0.5
-      extra_switch -S -w 100
+      extra_switch -S
     ])
     d.run
     sleep(1.5)
