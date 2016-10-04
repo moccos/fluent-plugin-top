@@ -13,7 +13,7 @@ KiB Mem:   2048936 total,   470324 used,  1578612 free,    32296 buffers
 KiB Swap:  2095100 total,        0 used,  2095100 free.   161784 cached Mem
 
   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
- 1043 moccos    20   0 1115192 167928   8204 S  12.8  8.2   0:29.62 /usr/bin/ruby2.1 -w -Ilib:test -I/var/lib/gems/2.1.0/gems/rake-11.2.2/lib /var/lib/gems/2.1.0/gems/rake-11.2.2/lib/rake/rake_test_loader.rb test/config/te+
+ 1043 moccos    20   0 5115192 2.345g   8204 S  12.8  8.2   0:29.62 /usr/bin/ruby2.1 -w -Ilib:test -I/var/lib/gems/2.1.0/gems/rake-11.2.2/lib /var/lib/gems/2.1.0/gems/rake-11.2.2/lib/rake/rake_test_loader.rb test/config/te+
 
 top - 12:21:41 up 4 min,  2 users,  load average: 0.05, 0.10, 0.05
 Tasks: 102 total,   1 running, 101 sleeping,   0 stopped,   0 zombie

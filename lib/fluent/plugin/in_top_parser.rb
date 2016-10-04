@@ -42,7 +42,7 @@ module Fluent
       begin
         pid, user, _pr, _ni, _virt, res, _shr, _s, cpu, mem, _time, cmd = ss
         args = ss.drop(12)
-        return true, @@PS_INFO.new(pid.to_i, user, res, cpu.to_f, mem.to_f, cmd, args)
+        return true, @@PS_INFO.new(pid.to_i, user, parse_unit(res), cpu.to_f, mem.to_f, cmd, args)
       rescue => e
         $log.warn "parse error #{e.to_s}: " + line
         reset_state
@@ -62,12 +62,8 @@ module Fluent
     def parse_unit(s)
       begin 
         case s[-1]
-        when "m"
-          s[0, s.length-1].to_f * 1024
-        when "g"
-          s[0, s.length-1].to_f * 1024 * 1024
-        #when "t"  # I've never seen...
-          #s[0, s.length-1].to_f * 1024 * 1024 * 1024
+        when "g"  # gibibyte
+          (s[0, s.length-1].to_f * 1024 * 1024).to_i
         else
           s.to_i
         end
