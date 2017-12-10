@@ -62,9 +62,9 @@ module Fluent
     def parse_unit(s)
       begin 
         case s[-1].downcase
-        when "g"  # Giga-byte
+        when "g"  # GiB
           (s[0, s.length-1].to_f * 1024 * 1024).to_i
-        when "m"  # Mega-byte
+        when "m"  # MiB
           (s[0, s.length-1].to_f * 1024).to_i
         else
           s.to_i
